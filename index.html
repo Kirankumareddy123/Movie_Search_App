@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search movies using OMDb API with pagination">
+    <title>Movie Search App | OMDb API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">🎬 Movie Search</h1>
+            <p class="header__subtitle">Discover movies powered by OMDb API</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-box__input" 
+                    placeholder="Search for movies, series, episodes..."
+                    autocomplete="off"
+                    aria-label="Movie search input"
+                >
+                <button id="searchBtn" class="search-box__btn" aria-label="Search button">
+                    <span class="btn-text">Search</span>
+                    <span class="btn-icon">🔍</span>
+                </button>
+            </div>
+        </section>
+
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Loading movies...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <section id="resultsSection" class="results-section hidden">
+            <div class="results-header">
+                <h2 id="resultsTitle" class="results-header__title"></h2>
+                <p id="resultsCount" class="results-header__count"></p>
+            </div>
+            <div id="moviesGrid" class="movies-grid"></div>
+        </section>
+
+        <div id="pagination" class="pagination hidden">
+            <button id="prevBtn" class="pagination__btn pagination__btn--prev" disabled>
+                <span>← Previous</span>
+            </button>
+            <div class="pagination__info">
+                <span>Page <strong id="currentPage">1</strong> of <strong id="totalPages">1</strong></span>
+            </div>
+            <button id="nextBtn" class="pagination__btn pagination__btn--next">
+                <span>Next →</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
